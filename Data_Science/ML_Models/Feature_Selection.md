@@ -6,6 +6,8 @@ These examples demonstrate nine common feature selection techniques to help redu
 
 ## Filter Methods
 
+Filter methods rely on statistical measures to assess the relationship between each feature and the target variable independently of any machine learning algorithm. They are computationally efficient and are often used as a first step to eliminate irrelevant features before more sophisticated methods are applied. Consider using filter methods when you want a quick and interpretable way to reduce the feature space without introducing model bias.
+
 **1. Variance Threshold**  
 Removes features with little variability that may not be informative. This simple method is effective for eliminating constant or near-constant features.
 
@@ -45,6 +47,8 @@ X_new = selector.fit_transform(X, y)
 ---
 
 ## Wrapper Methods
+
+Wrapper methods evaluate feature subsets by actually training and testing a model, which helps to capture interactions between features. They tend to be more computationally expensive than filter methods but can provide more accurate feature sets tailored to the specific model. Consider using wrapper methods when model performance is critical and you have sufficient computational resources to perform the iterative selection process.
 
 **4. Recursive Feature Elimination (RFE)**  
 Iteratively removes the least important features based on a model's performance. RFE helps in selecting features that contribute most to predicting the target variable.
@@ -97,6 +101,8 @@ X_backward = sfs_backward.transform(X)
 ---
 
 ## Embedded Methods
+
+Embedded methods incorporate feature selection as part of the model training process, which helps to improve the generalization of the model. These methods balance the trade-offs between computational efficiency and model accuracy by automatically selecting features during model fitting. Consider using embedded methods when you want a streamlined approach that integrates feature selection with model training, particularly when you expect only a subset of features to be truly influential.
 
 **7. Regularization Techniques (LASSO)**  
 Uses L1 regularization to shrink less important feature coefficients to zero, effectively performing feature selection. LASSO is particularly useful when you expect only a subset of features to be useful.
